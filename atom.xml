@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-25T09:34:56.354Z</updated>
+    <updated>2020-04-25T16:33:05.023Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -10,6 +10,167 @@
     <logo>https://mtdhllf.github.io/images/avatar.png</logo>
     <icon>https://mtdhllf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gopher&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Markdown学习笔记]]></title>
+        <id>https://mtdhllf.github.io/markdown-study-notes/</id>
+        <link href="https://mtdhllf.github.io/markdown-study-notes/">
+        </link>
+        <updated>2020-04-25T16:06:03.000Z</updated>
+        <content type="html"><![CDATA[<center><h1>Markdown学习笔记</h1></center>
+<h2 id="markdown-标题">Markdown 标题</h2>
+<ul>
+<li>
+<p>使用 = 和 - 标记一级和二级标题</p>
+<pre><code>我展示的是一级标题(下面=要两个以上)
+=================
+
+我展示的是二级标题(下行-要两个以上)
+-----------------
+</code></pre>
+<h2 id="显示效果如下">显示效果如下：</h2>
+</li>
+</ul>
+<h1 id="我展示的是一级标题">我展示的是一级标题</h1>
+<h2 id="我展示的是二级标题">我展示的是二级标题</h2>
+<hr>
+<ul>
+<li>
+<p>使用 # 号标记</p>
+<p>使用 <strong>#</strong> 号可表示 1-6 级标题，一级标题对应一个 <strong>#</strong> 号，二级标题对应两个 <strong>#</strong> 号，以此类推。</p>
+<pre><code># 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+</code></pre>
+<p>显示效果如下：</p>
+<hr>
+<h1 id="一级标题">一级标题</h1>
+<h2 id="二级标题">二级标题</h2>
+<h3 id="三级标题">三级标题</h3>
+<h4 id="四级标题">四级标题</h4>
+<h5 id="五级标题">五级标题</h5>
+<h6 id="六级标题">六级标题</h6>
+<hr>
+</li>
+</ul>
+<h2 id="markdown段落样式">Markdown段落样式</h2>
+<ul>
+<li>
+<h3 id="markdown段落">Markdown段落</h3>
+<ol>
+<li>
+<p>Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。</p>
+<pre><code>text1  (text1后面有两个空格)  
+text2
+</code></pre>
+</li>
+<li>
+<p>也可以在段落后面使用一个空行来表示重新开始一个段落。</p>
+<pre><code>text1
+
+text2
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<h3 id="字体">字体</h3>
+<p>Markdown 可以使用以下几种字体：</p>
+<pre><code>*斜体文本*
+_斜体文本_
+**粗体文本**
+__粗体文本__
+***粗斜体文本***
+___粗斜体文本___
+</code></pre>
+<p>显示效果如下所示：</p>
+<hr>
+<p><em>斜体文本</em><br>
+<em>斜体文本</em><br>
+<strong>粗体文本</strong><br>
+<strong>粗体文本</strong><br>
+<em><strong>粗斜体文本</strong></em><br>
+<em><strong>粗斜体文本</strong></em></p>
+<hr>
+</li>
+</ul>
+<h2 id="markdown-列表">Markdown 列表</h2>
+<p>Markdown 支持有序列表和无序列表。</p>
+<p>无序列表使用星号(<em><strong><strong>)、加号(</strong>+</strong>)或是减号(</em><em>-</em>*)作为列表标记：</p>
+<pre><code>* 第一项
+* 第二项
+* 第三项
+
++ 第一项
++ 第二项
++ 第三项
+
+
+- 第一项
+- 第二项
+- 第三项
+</code></pre>
+<p>显示结果如下：</p>
+<hr>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<ul>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ul>
+<h2 id="markdown-区块">Markdown 区块</h2>
+<ul>
+<li>
+<p><strong>单层区块</strong></p>
+<p>Markdown 区块引用是在段落开头使用 <strong>&gt;</strong> 符号 ，然后后面紧跟一个<strong>空格</strong>符号：</p>
+<pre><code>&gt; 白日依山尽，
+&gt; 黄河入海流。
+&gt; 欲穷千里目，
+&gt; 更上一层楼。
+</code></pre>
+<p>显示结果如下：</p>
+<blockquote>
+<p>白日依山尽，<br>
+黄河入海流。<br>
+欲穷千里目，<br>
+更上一层楼。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>嵌套区块</strong></p>
+<p>区块是可以嵌套的，一个 <strong>&gt;</strong> 符号是最外层，两个 <strong>&gt;</strong> 符号是第一层嵌套，以此类推：</p>
+<pre><code>&gt; 最外层
+&gt; &gt; 第一层嵌套
+&gt; &gt; &gt; 第二层嵌套
+</code></pre>
+<p>显示结果如下：</p>
+<blockquote>
+<p>最外层</p>
+<blockquote>
+<p>第一层嵌套</p>
+<blockquote>
+<p>第二层嵌套</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li>
+<p><strong>区块中使用列表</strong></p>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://mtdhllf.github.io/hello-gridea/</id>
