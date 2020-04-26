@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-26T15:06:01.296Z</updated>
+    <updated>2020-04-26T15:22:49.247Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, Gopher&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[Android/JAVA 图像分析-主要颜色]]></title>
-        <id>https://mtdhllf.github.io/androidjava-tu-xiang-fen-xi-zhu-yao-yan-se/</id>
-        <link href="https://mtdhllf.github.io/androidjava-tu-xiang-fen-xi-zhu-yao-yan-se/">
+        <id>https://mtdhllf.github.io/analyze_image_color/</id>
+        <link href="https://mtdhllf.github.io/analyze_image_color/">
         </link>
         <updated>2020-04-26T14:56:46.000Z</updated>
         <content type="html"><![CDATA[<p>有些项目可能会遇到这类需求，识别一套服装或者其他物体的颜色信息，以此来判定他的颜色风格。如果业务交由于后端的话压力可能会比较大，其实前端自行处理一下就好了，逻辑也不复杂。</p>
