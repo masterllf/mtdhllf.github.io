@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-26T01:03:23.977Z</updated>
+    <updated>2020-04-26T14:58:16.231Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -10,6 +10,143 @@
     <logo>https://mtdhllf.github.io/images/avatar.png</logo>
     <icon>https://mtdhllf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gopher&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Android/JAVA 图像分析-主要颜色]]></title>
+        <id>https://mtdhllf.github.io/androidjava-tu-xiang-fen-xi-zhu-yao-yan-se/</id>
+        <link href="https://mtdhllf.github.io/androidjava-tu-xiang-fen-xi-zhu-yao-yan-se/">
+        </link>
+        <updated>2020-04-26T14:56:46.000Z</updated>
+        <content type="html"><![CDATA[<p>有些项目可能会遇到这类需求，识别一套服装或者其他物体的颜色信息，以此来判定他的颜色风格。如果业务交由于后端的话压力可能会比较大，其实前端自行处理一下就好了，逻辑也不复杂。</p>
+<p>彩色图像的颜色模型有很多种形式，<a href="https://baike.baidu.com/item/RGB">RGB</a>、YUV、<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>、CMYK，其中在图像处理以<a href="https://baike.baidu.com/item/RGB">RGB</a>最为直观理解且显示器系统采用就是此类模型，而<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>更符合人眼的颜色分辨，通常在<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>颜色空间下进行颜色识别。</p>
+<h2 id="rgb的局限性">RGB的局限性</h2>
+<p><a href="https://baike.baidu.com/item/RGB">RGB</a> 是我们接触最多的颜色空间，由三个通道表示一幅图像，分别为红色(R)，绿色(G)和蓝色(B)。这三种颜色的不同组合可以形成几乎所有的其他颜色。</p>
+<p><a href="https://baike.baidu.com/item/RGB">RGB</a> 颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间，比较容易理解。</p>
+<p><a href="https://baike.baidu.com/item/RGB">RGB</a> 色空间利用三个颜色分量的线性组合来表示颜色，任何颜色都与这三个分量有关，而且这三个分量是高度相关的，所以连续变换颜色时并不直观，想对图像的颜色进行调整需要更改这三个分量才行。</p>
+<p>自然环境下获取的图像容易受自然光照、遮挡和阴影等情况的影响，即对亮度比较敏感。而 <a href="https://baike.baidu.com/item/RGB">RGB</a> 颜色空间的三个分量都与亮度密切相关，即只要亮度改变，三个分量都会随之相应地改变，而没有一种更直观的方式来表达。</p>
+<p>但是人眼对于这三种颜色分量的敏感程度是不一样的，在单色中，人眼对红色最不敏感，蓝色最敏感，所以 <a href="https://baike.baidu.com/item/RGB">RGB</a> 颜色空间是一种均匀性较差的颜色空间。如果颜色的相似性直接用欧氏距离来度量，其结果与人眼视觉会有较大的偏差。对于某一种颜色，我们很难推测出较为精确的三个分量数值来表示。</p>
+<p>所以，<a href="https://baike.baidu.com/item/RGB">RGB</a> 颜色空间适合于显示系统，却并不适合于图像处理。</p>
+<h2 id="hsv颜色空间">HSV颜色空间</h2>
+<p>基于上述理由，在图像处理中使用较多的是 <a href="https://baike.baidu.com/item/HSV/547122">HSV</a>颜色空间，它比 <a href="https://baike.baidu.com/item/RGB">RGB</a> 更接近人们对彩色的感知经验。非常直观地表达颜色的色调、鲜艳程度和明暗程度，方便进行颜色的对比。</p>
+<p>在 <a href="https://baike.baidu.com/item/HSV/547122">HSV</a> 颜色空间下，比<a href="https://baike.baidu.com/item/RGB">RGB</a>更容易跟踪某种颜色的物体，常用于分割指定颜色的物体。</p>
+<p><a href="https://baike.baidu.com/item/HSV/547122">HSV</a> 表达彩色图像的方式由三个部分组成：</p>
+<ul>
+<li>Hue（色调、色相）</li>
+<li>Saturation（饱和度、色彩纯净度）</li>
+<li>Value（明度）</li>
+</ul>
+<p>用下面这个圆柱体来表示 <a href="https://baike.baidu.com/item/HSV/547122">HSV</a> 颜色空间，圆柱体的横截面可以看做是一个极坐标系 ，H 用极坐标的极角表示，S 用极坐标的极轴长度表示，V 用圆柱中轴的高度表示。</p>
+<h2 id="颜色识别的思路">颜色识别的思路</h2>
+<ol>
+<li>统计图像中的颜色比重情况</li>
+<li>合并相近的颜色输</li>
+<li>得到新的结果</li>
+</ol>
+<h2 id="代码实现">代码实现</h2>
+<ul>
+<li>
+<h4 id="颜色识别">颜色识别</h4>
+<pre><code class="language-kotlin">/**
+     * 颜色分析
+     * @param bitmap 位图(建议分辨率先压缩到256基准,当quality为10耗时大概[100-200]ms)
+     * @param quality 质量(颜色合并遍历次数)
+     * @param take 取前几个结果
+     */
+    fun analyzeImageColor(bitmap: Bitmap, quality: Int = 10, take: Int) {
+
+        /**&lt;颜色,计数&gt;*/
+        val allColor = ConcurrentHashMap&lt;Int, Int&gt;()
+        //统计所有颜色,相同颜色计数累加
+        for (y in 0 until bitmap.height) {
+            for (x in 0 until bitmap.width) {
+                bitmap.getPixel(x, y).let {
+                    if (allColor.containsKey(it)) allColor[it]!! + 1 else 1
+                }
+            }
+        }
+        //倒序排序
+        val sortColor = allColor.toList().sortedByDescending { it.second }
+            .toMap().toMutableMap()
+
+        val hsv1 = FloatArray(3)
+        val hsv2 = FloatArray(3)
+        Log.i(&quot;合并前&quot;, &quot;${sortColor.size}&quot;)
+        for (i in 0 until min(quality, sortColor.size)) {
+            if (sortColor.size &gt; i) {
+                val iterator = sortColor.iterator()
+                var first = iterator.next()
+                //move head
+                for (j in (0 until i)) {
+                    first = iterator.next()
+                }
+                while (iterator.hasNext()) {
+                    val second = iterator.next()
+                    Color.colorToHSV(first.key, hsv1)
+                    Color.colorToHSV(second.key, hsv2)
+                    //颜色相似判断及合并
+                    if (checkColorSimilar(hsv1, hsv2)) {
+                        first.setValue(first.value + second.value)
+                        iterator.next()
+                    }
+                }
+
+            }
+        }
+        Log.i(&quot;合并后&quot;, &quot;${sortColor.size}&quot;)
+
+        //结果取数量最多的前[take]个数据,
+        //List&lt;颜色,数量&gt;,结合实际需求自行封装成想要的数据
+        val result = sortColor.toList().sortedByDescending { it.second }.take(take)
+    }
+
+    /**
+     * 颜色相似判定
+     */
+    fun checkColorSimilar(hsv1: FloatArray, hsv2: FloatArray): Boolean {
+        val similarH = 10f
+        val similarS = 0.05
+        val similarV = 0.05
+        return when {
+            abs(hsv1[0] - hsv2[0]) &lt; similarH -&gt; true
+
+            abs(hsv1[0] - hsv2[0]) &lt; similarH * 2
+            &amp;&amp; abs(hsv1[1] - hsv2[1]) &lt; similarS -&gt; true
+
+            abs(hsv1[0] - hsv2[0]) &lt; similarH * 2
+            &amp;&amp; abs(hsv1[2] - hsv2[2]) &lt; similarV -&gt; true
+
+            else-&gt;false
+        }
+    }
+</code></pre>
+</li>
+<li>
+<p>RGB转HSV</p>
+<pre><code class="language-java">public static HSV RGB2HSV(RGB rgb) {
+    float r =(float) rgb . getR () / 255;
+    float g =(float) rgb . getG () / 255;
+    float b =(float) rgb . getB () / 255;
+    float max = max (r, g, b);
+    float min = min (r, g, b);
+    float h = 0;
+    if (r == max)
+        h = (g - b) / (max - min);
+    if (g == max)
+        h = 2 + (b - r) / (max - min);
+    if (b == max)
+        h = 4 + (r - g) / (max - min);
+    h *= 60;
+    if (h &lt; 0) h += 360;
+    HSV hsv = new HSV(h, (max - min) / max, max);
+    return hsv;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<h3 id="rgb-hsv和hsl颜色空间"><a href="https://zhuanlan.zhihu.com/p/67930839">RGB、HSV和HSL颜色空间</a></h3>
+<h3 id="rgb转-hsv"><a href="http://www.360doc.com/content/17/0726/16/45531310_674302066.shtml">RGB转 HSV</a></h3>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Markdown学习笔记]]></title>
         <id>https://mtdhllf.github.io/markdown-study-notes/</id>
