@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-27T08:51:01.838Z</updated>
+    <updated>2020-04-27T08:55:26.558Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -218,7 +218,7 @@ private fun init() {
         <link href="https://mtdhllf.github.io/analyze_image_color/">
         </link>
         <updated>2020-04-26T14:56:46.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://github.com/mtdhllf/ActivityResultSample">Demo点我</a></p>
+        <content type="html"><![CDATA[<p><a href="https://github.com/mtdhllf/ImageColorSample">Demo点我</a></p>
 <p>有些项目可能会遇到这类需求，识别一套服装或者其他物体的颜色信息，以此来判定他的颜色风格。如果业务交由于后端的话压力可能会比较大，其实前端自行处理一下就好了，逻辑也不复杂。</p>
 <p>彩色图像的颜色模型有很多种形式，<a href="https://baike.baidu.com/item/RGB">RGB</a>、YUV、<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>、CMYK，其中在图像处理以<a href="https://baike.baidu.com/item/RGB">RGB</a>最为直观理解且显示器系统采用就是此类模型，而<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>更符合人眼的颜色分辨，通常在<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>颜色空间下进行颜色识别。</p>
 <h2 id="rgb的局限性">RGB的局限性</h2>
