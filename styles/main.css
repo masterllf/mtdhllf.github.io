@@ -5820,7 +5820,7 @@ pre[class*="language-"] {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
-  text-shadow: 0 -0.1em 0.2em black;
+  text-shadow: none;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
@@ -6191,13 +6191,13 @@ pre[data-line] {
   font-size: 0.86em;
   font-family: Menlo,Monaco,Consolas,Courier New,monospace;
   border-radius: 0.5rem;
-  box-shadow: 1px 1px 0.5em black inset;
+  box-shadow: 1px 1px 0.5em #666565 inset;
   padding: 1em;
-  background: hsl(0, 0%, 8%);
+  background: #343a40;
 }
 .yue pre code,
 .yue pre tt {
-  color: #F7FAFC;
+  color: #f1f3f5;
   border: none;
   background: none;
   padding: 0;
