@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-28T03:07:25.878Z</updated>
+    <updated>2020-04-28T03:55:33.453Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -10,6 +10,160 @@
     <logo>https://mtdhllf.github.io/images/avatar.png</logo>
     <icon>https://mtdhllf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gopher&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[几行代码完美实现VerticalSeekBar]]></title>
+        <id>https://mtdhllf.github.io/vertical_seekbar/</id>
+        <link href="https://mtdhllf.github.io/vertical_seekbar/">
+        </link>
+        <updated>2020-04-28T04:40:32.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="有哪些优点">有哪些优点</h3>
+<ul>
+<li>继承自原生SeekBar，显示效果与原生相当</li>
+<li>核心代码只有20行左右，无侵入，使用Api跟原生别无二致</li>
+<li>兼容性好，不同于网上使用旋转实现的方案，某些场景下有各种各样的bug</li>
+</ul>
+<h3 id="上个效果图参考miui12配色">上个效果图(参考MIUI12配色)</h3>
+<h3 id=""><a href="https://github.com/mtdhllf/VerticalSeekBar"><strong>Demo点我</strong></a></h3>
+<figure data-type="image" tabindex="1"><img src="http://i1.fuimg.com/717574/8fe6365289fd9fd3.jpg" alt="" loading="lazy"></figure>
+<h3 id="代码">代码</h3>
+<pre><code class="language-kotlin">/**
+ * author: mtdhllf
+ * time  : 2020/04/28 9:57
+ * desc  :
+ */
+class VerticalSeekBar : AppCompatSeekBar {
+
+    private var mOnSeekBarChangeListener: OnSeekBarChangeListener? = null
+
+    override fun setOnSeekBarChangeListener(l: OnSeekBarChangeListener) {
+        mOnSeekBarChangeListener = l
+        super.setOnSeekBarChangeListener(l)
+    }
+
+    @SuppressLint(&quot;ClickableViewAccessibility&quot;)
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if (!isEnabled) {
+            return false
+        }
+        parent.requestDisallowInterceptTouchEvent(true)
+        when (event!!.action) {
+            MotionEvent.ACTION_DOWN -&gt; {
+                mOnSeekBarChangeListener?.onStartTrackingTouch(this)
+                val i = max - (max * event.y * 1f / height).toInt()
+                progress = i
+                if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                    parent.requestDisallowInterceptTouchEvent(false)
+                    mOnSeekBarChangeListener?.onStopTrackingTouch(this)
+                }
+            }
+            MotionEvent.ACTION_MOVE, MotionEvent.ACTION_UP -&gt; {
+                val i = max - (max * event.y * 1f / height).toInt()
+                progress = i
+                if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                    parent.requestDisallowInterceptTouchEvent(false)
+                    mOnSeekBarChangeListener?.onStopTrackingTouch(this)
+                }
+            }
+        }
+        return true
+    }
+
+    constructor(ctx: Context) : super(ctx)
+
+    constructor(ctx: Context, attrs: AttributeSet?) : this(ctx, attrs, 0)
+
+    constructor(ctx: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(ctx, attrs, defStyleAttr)
+
+    init {
+        thumb = null
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        mOnSeekBarChangeListener = null
+    }
+
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[几行代码完美实现VerticalSeekBar]]></title>
+        <id>https://mtdhllf.github.io/0uRoA_zHT/</id>
+        <link href="https://mtdhllf.github.io/0uRoA_zHT/">
+        </link>
+        <updated>2020-04-28T03:46:32.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="有哪些优点">有哪些优点</h3>
+<ul>
+<li>继承自原生SeekBar，显示效果与原生相当</li>
+<li>核心代码只有20行左右，无侵入，使用Api跟原生别无二致</li>
+<li>兼容性好，不同于网上使用旋转实现的方案，某些场景下有各种各样的bug</li>
+</ul>
+<h3 id="上个效果图参考miui12配色">上个效果图(参考MIUI12配色)</h3>
+<h3 id=""><a href="https://github.com/mtdhllf/VerticalSeekBar"><strong>Demo点我</strong></a></h3>
+<figure data-type="image" tabindex="1"><img src="http://i1.fuimg.com/717574/8fe6365289fd9fd3.jpg" alt="" loading="lazy"></figure>
+<h3 id="代码">代码</h3>
+<pre><code class="language-kotlin">/**
+ * author: mtdhllf
+ * time  : 2020/04/28 9:57
+ * desc  :
+ */
+class VerticalSeekBar : AppCompatSeekBar {
+
+    private var mOnSeekBarChangeListener: OnSeekBarChangeListener? = null
+
+    override fun setOnSeekBarChangeListener(l: OnSeekBarChangeListener) {
+        mOnSeekBarChangeListener = l
+        super.setOnSeekBarChangeListener(l)
+    }
+
+    @SuppressLint(&quot;ClickableViewAccessibility&quot;)
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if (!isEnabled) {
+            return false
+        }
+        parent.requestDisallowInterceptTouchEvent(true)
+        when (event!!.action) {
+            MotionEvent.ACTION_DOWN -&gt; {
+                mOnSeekBarChangeListener?.onStartTrackingTouch(this)
+                val i = max - (max * event.y * 1f / height).toInt()
+                progress = i
+                if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                    parent.requestDisallowInterceptTouchEvent(false)
+                    mOnSeekBarChangeListener?.onStopTrackingTouch(this)
+                }
+            }
+            MotionEvent.ACTION_MOVE, MotionEvent.ACTION_UP -&gt; {
+                val i = max - (max * event.y * 1f / height).toInt()
+                progress = i
+                if (event.action == MotionEvent.ACTION_UP || event.action == MotionEvent.ACTION_CANCEL) {
+                    parent.requestDisallowInterceptTouchEvent(false)
+                    mOnSeekBarChangeListener?.onStopTrackingTouch(this)
+                }
+            }
+        }
+        return true
+    }
+
+    constructor(ctx: Context) : super(ctx)
+
+    constructor(ctx: Context, attrs: AttributeSet?) : this(ctx, attrs, 0)
+
+    constructor(ctx: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(ctx, attrs, defStyleAttr)
+
+    init {
+        thumb = null
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        mOnSeekBarChangeListener = null
+    }
+
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Android自定义环形进度条]]></title>
         <id>https://mtdhllf.github.io/ringview/</id>
