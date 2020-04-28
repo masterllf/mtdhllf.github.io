@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Gopher&#39;s Blog</title>
 <meta name="description" content="峰子的博客" />
-<link rel="shortcut icon" href="https://mtdhllf.github.io//favicon.ico?v=1587977723698">
+<link rel="shortcut icon" href="https://mtdhllf.github.io//favicon.ico?v=1588043238671">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
@@ -23,7 +23,7 @@
       <div class="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
         <i class="ri-menu-2-line lg:mt-4 text-2xl cursor-pointer animated fadeIn" onclick="openMenu()"></i>
         <a href="https://mtdhllf.github.io/">
-          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://mtdhllf.github.io//images/avatar.png?v=1587977723698" alt="">
+          <img class="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-32 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12" src="https://mtdhllf.github.io//images/avatar.png?v=1588043238671" alt="">
         </a>
         <h1 class="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl" style="animation-delay: 0.2s">Gopher&#39;s Blog</h1>
       </div>
@@ -36,6 +36,8 @@
             <ul class="markdownIt-TOC">
 <li>
 <ul>
+<li><a href="#androidjava-%E5%9B%BE%E5%83%8F%E5%88%86%E6%9E%90-%E4%B8%BB%E8%A6%81%E9%A2%9C%E8%89%B2">Android/JAVA 图像分析-主要颜色</a></li>
+<li><a href="#%E5%85%88%E4%B8%8A%E4%B8%AA%E6%95%88%E6%9E%9C%E5%9B%BEdemo%E7%82%B9%E6%88%91">先上个效果图(Demo点我)</a></li>
 <li><a href="#rgb%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7">RGB的局限性</a></li>
 <li><a href="#hsv%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4">HSV颜色空间</a></li>
 <li><a href="#%E9%A2%9C%E8%89%B2%E8%AF%86%E5%88%AB%E7%9A%84%E6%80%9D%E8%B7%AF">颜色识别的思路</a></li>
@@ -108,9 +110,11 @@
           <img class="post-feature-image rounded-lg mx-auto my-4" src="http://i2.tiimg.com/717574/2ecc353c2107eee8.png" alt="">
         
         <div class="post-content yue">
-          <p><a href="https://github.com/mtdhllf/ImageColorSample">Demo点我</a></p>
+          <h2 id="androidjava-图像分析-主要颜色">Android/JAVA 图像分析-主要颜色</h2>
 <p>有些项目可能会遇到这类需求，识别一套服装或者其他物体的颜色信息，以此来判定他的颜色风格。如果业务交由于后端的话压力可能会比较大，其实前端自行处理一下就好了，逻辑也不复杂。</p>
 <p>彩色图像的颜色模型有很多种形式，<a href="https://baike.baidu.com/item/RGB">RGB</a>、YUV、<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>、CMYK，其中在图像处理以<a href="https://baike.baidu.com/item/RGB">RGB</a>最为直观理解且显示器系统采用就是此类模型，而<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>更符合人眼的颜色分辨，通常在<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>颜色空间下进行颜色识别。</p>
+<h2 id="先上个效果图demo点我">先上个效果图(<a href="https://github.com/mtdhllf/ImageColorSample">Demo点我</a>)</h2>
+<figure data-type="image" tabindex="1"><img src="http://i1.fuimg.com/717574/f3acdcb4b6f184cc.jpg" alt="" loading="lazy"></figure>
 <h2 id="rgb的局限性">RGB的局限性</h2>
 <p><a href="https://baike.baidu.com/item/RGB">RGB</a> 是我们接触最多的颜色空间，由三个通道表示一幅图像，分别为红色(R)，绿色(G)和蓝色(B)。这三种颜色的不同组合可以形成几乎所有的其他颜色。</p>
 <p><a href="https://baike.baidu.com/item/RGB">RGB</a> 颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间，比较容易理解。</p>
