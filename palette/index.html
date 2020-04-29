@@ -16,7 +16,7 @@
 
   </head>
   <body>
-    <div class="main px-4 flex flex-col lg:flex-row">
+    <div id="app" class="main px-4 flex flex-col lg:flex-row">
       <div id="sidebar" class="sidebar-wrapper lg:static lg:w-1/4">
   <div class="lg:sticky top-0">
     <div class="sidebar-content">
@@ -30,42 +30,23 @@
       
         <div class="animated fadeInLeft" style="animation-delay: 0.4s">
           <p class="my-4 text-gray-600 font-light hidden lg:block">
-            峰子的博客
+            文章目录
           </p>
-          <div class="animated fadeInLeft social-container hidden lg:block" style="animation-delay: 0.6s">
-            
-              
-                <a href="https://github.com/mtdhllf" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-github-line"></i>
-                </a>
-              
-            
-              
-            
-              
-            
-              
-                <a href="https://www.jianshu.com/u/a056511da06a" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-zhihu-line"></i>
-                </a>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-                <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1228551440&amp;site=qq&amp;menu=yes" target="_blank" class="mr-4 text-xl text-gray-400 font-light hover:text-gray-900">
-                  <i class="ri-qq-line"></i>
-                </a>
-              
-            
+          <div class="toc-container hidden lg:block">
+            <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%95%88%E6%9E%9C%E5%9B%BE">效果图</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81">代码</a></li>
+<li><a href="#demo">Demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
           </div>
         </div>
       
@@ -109,112 +90,129 @@
 </div>
 <div class="mask" onclick="closeMenu()">
 </div>
-      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4">
-        <h2 class="latest-article text-lg text-gray-700 mb-8">
-          <i class="ri-article-line"></i>
-          最新文章
-        </h2>
-        
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${0 * 0.2}s` }">
-    
-      <a href="https://mtdhllf.github.io/palette/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'http://i1.fuimg.com/717574/1a38db7ae9d8e5cb.png'">
+      <div class="content-wrapper py-32 lg:p-8 lg:w-3/4 post-detail animated fadeIn">
+        <h1 class="text-3xl font-bold lg:mt-16">Android识别图片中的颜色</h1>
+        <div class="text-sm text-gray-700 lg:my-8">
+          2020-04-29 / 2 min read
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://mtdhllf.github.io/palette/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Android识别图片中的颜色</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-04-29 / 2 min read</div>
-    </div>
-  </section>
+          <img class="post-feature-image rounded-lg mx-auto my-4" src="http://i1.fuimg.com/717574/1a38db7ae9d8e5cb.png" alt="">
+        
+        <div class="post-content yue">
+          <p>Java的同学可参考<a href="https://mtdhllf.github.io/analyze_image_color/">JAVA 图像分析-主要颜色</a></p>
+<p>前端的同学可参考<a href="https://github.com/google/palette.js">palette.js</a></p>
+<p>IOS的同学可参考<a href="https://www.jianshu.com/p/b7f79c55b066">Google Palette算法详解以及OC化</a></p>
+<p>本篇使用谷歌的Palette库来实现</p>
+<h3 id="效果图">效果图</h3>
+<p><img src="http://i2.tiimg.com/717574/32aa2a58c5af05ca.jpg" alt="" loading="lazy"><br>
+<img src="http://i2.tiimg.com/717574/83c0fb77a583d5a6.jpg" alt="" loading="lazy"></p>
+<p>添加依赖</p>
+<pre><code class="language-scss">//Android
+implementation 'com.android.support:palette-v7:29.0.0'
+//AndroidX
+implementation 'androidx.palette:palette:1.0.0'
+</code></pre>
+<h3 id="代码">代码</h3>
+<pre><code class="language-kotlin">object PaletteUtils {
+	/**
+	* 回调接口
+	*/
+    interface IAnalyzeColor {
+        fun result(result: ArrayList&lt;ColorInfo&gt;)
+    }
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${1 * 0.2}s` }">
-    
-      <a href="https://mtdhllf.github.io/vertical_seekbar/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'http://i1.fuimg.com/717574/4fd0e54ab8436ca7.png'">
+    data class ColorInfo(
+            //颜色
+            val color: Int,
+            //颜色占比
+            val percentage: Float
+    )
+
+    /**
+     * 从bitmap获取主色调及权重
+     */
+    fun paletteColor(bitmap: Bitmap, iColor: IAnalyzeColor?) {
+        val builder = Palette.from(bitmap)
+        builder.maximumColorCount(8)
+        builder.generate { palette -&gt;
+            palette?.let {
+                val swatches = palette.swatches
+                swatches.forEach {
+                    ALog.v(&quot;Palette&quot;, &quot;${it.bodyTextColor} ${it.population}&quot;)
+                }
+                //这里取权重靠前的五个颜色
+                val take = swatches.toMutableList().sortedByDescending { it.population }.take(5)
+                val sum = take.sumBy { it.population }
+                val result = ArrayList&lt;ColorInfo&gt;(take.size)
+                take.forEach {
+                    result.add(ColorInfo(it.rgb, it.population.toFloat() / sum))
+                }
+                iColor?.result(result)
+            }
+
+        }
+    }
+}
+</code></pre>
+<h3 id="demo">Demo</h3>
+<p>由于代码不多,想实践的话可复用此<a href="https://github.com/mtdhllf/ImageColorSample">demo</a></p>
+
         </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://mtdhllf.github.io/vertical_seekbar/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">几行代码完美实现VerticalSeekBar</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
-        
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-04-28 / 2 min read</div>
-    </div>
-  </section>
 
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${2 * 0.2}s` }">
-    
-      <a href="https://mtdhllf.github.io/ringview/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'http://i1.fuimg.com/717574/f669b614f010c527.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://mtdhllf.github.io/ringview/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Android自定义环形进度条</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-04-27 / 6 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${3 * 0.2}s` }">
-    
-      <a href="https://mtdhllf.github.io/analyze_image_color/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'http://i2.tiimg.com/717574/2ecc353c2107eee8.png'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://mtdhllf.github.io/analyze_image_color/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Android/JAVA 图像分析-主要颜色</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://mtdhllf.github.io/tag/v8-cDsPl4/">
+            <span class="flex-auto">图像处理</span>
+          </a>
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-04-26 / 6 min read</div>
-    </div>
-  </section>
-
-  <section class="post-item md:flex pb-12 animated fadeIn" :style="{ 'animation-delay': `${4 * 0.2}s` }">
-    
-      <a href="https://mtdhllf.github.io/markdown-study-notes/" class="feature-image-wrapper bg-gray-100 rounded-lg flex-shrink-0 mr-8 w-full h-56 h-32 md:w-56 md:h-40">
-        <div class="post-feature-image lazy w-full h-56 h-32 md:w-56 md:h-40" data-bg="'http://i2.tiimg.com/717574/88bfee1c72bc57a2.jpg'">
-        </div>
-      </a>
-    
-    <div class="content">
-      <a href="https://mtdhllf.github.io/markdown-study-notes/">
-        <h2 class="post-title text-xl font-extrabold mt-5 md:mt-0">Markdown学习笔记</h2>
-      </a>
-      <div class="post-abstract text-gray-700 font-light my-4">
+          <a class="animated fadeInUp p-2 items-center text-sm text-gray-700 border hover:bg-gray-300 leading-none rounded-full flex lg:inline-flex m-4 " href="https://mtdhllf.github.io/tag/android/">
+            <span class="flex-auto">Android</span>
+          </a>
         
-      </div>
-      <div class="text-gray-400 text-sm font-light">2020-04-26 / 7 min read</div>
-    </div>
-  </section>
 
-        <div class="read-more">
+
+        <div class="flex justify-between py-8">
+          
+
+          
+            <div class="next-post">
+              <a href="https://mtdhllf.github.io/vertical_seekbar/">
+                <h3 class="post-title">
+                  几行代码完美实现VerticalSeekBar
+                  <i class="ri-arrow-right-line"></i>
+                </h3>
+              </a>
+            </div>
           
         </div>
-        <div class="index-page">
-          <div class="pagination-container animated fadeIn">
-  
-  
-</div>
 
-        </div>
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '17fd0fe4f1fbb793d275',
+    clientSecret: '7fe45b7c5d49c05c0ef71521e1c01c5fd23a6981',
+    repo: 'gitalk',
+    owner: 'mtdhllf',
+    admin: ['mtdhllf'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
       </div>
     </div>
 

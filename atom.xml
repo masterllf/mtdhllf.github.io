@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-29T03:41:55.428Z</updated>
+    <updated>2020-04-29T09:42:09.688Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -10,6 +10,71 @@
     <logo>https://mtdhllf.github.io/images/avatar.png</logo>
     <icon>https://mtdhllf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gopher&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Android识别图片中的颜色]]></title>
+        <id>https://mtdhllf.github.io/palette/</id>
+        <link href="https://mtdhllf.github.io/palette/">
+        </link>
+        <updated>2020-04-29T14:32:15.000Z</updated>
+        <content type="html"><![CDATA[<p>Java的同学可参考<a href="https://mtdhllf.github.io/analyze_image_color/">JAVA 图像分析-主要颜色</a></p>
+<p>前端的同学可参考<a href="https://github.com/google/palette.js">palette.js</a></p>
+<p>IOS的同学可参考<a href="https://www.jianshu.com/p/b7f79c55b066">Google Palette算法详解以及OC化</a></p>
+<p>本篇使用谷歌的Palette库来实现</p>
+<h3 id="效果图">效果图</h3>
+<p><img src="http://i2.tiimg.com/717574/32aa2a58c5af05ca.jpg" alt="" loading="lazy"><br>
+<img src="http://i2.tiimg.com/717574/83c0fb77a583d5a6.jpg" alt="" loading="lazy"></p>
+<p>添加依赖</p>
+<pre><code class="language-scss">//Android
+implementation 'com.android.support:palette-v7:29.0.0'
+//AndroidX
+implementation 'androidx.palette:palette:1.0.0'
+</code></pre>
+<h3 id="代码">代码</h3>
+<pre><code class="language-kotlin">object PaletteUtils {
+	/**
+	* 回调接口
+	*/
+    interface IAnalyzeColor {
+        fun result(result: ArrayList&lt;ColorInfo&gt;)
+    }
+
+    data class ColorInfo(
+            //颜色
+            val color: Int,
+            //颜色占比
+            val percentage: Float
+    )
+
+    /**
+     * 从bitmap获取主色调及权重
+     */
+    fun paletteColor(bitmap: Bitmap, iColor: IAnalyzeColor?) {
+        val builder = Palette.from(bitmap)
+        builder.maximumColorCount(8)
+        builder.generate { palette -&gt;
+            palette?.let {
+                val swatches = palette.swatches
+                swatches.forEach {
+                    ALog.v(&quot;Palette&quot;, &quot;${it.bodyTextColor} ${it.population}&quot;)
+                }
+                //这里取权重靠前的五个颜色
+                val take = swatches.toMutableList().sortedByDescending { it.population }.take(5)
+                val sum = take.sumBy { it.population }
+                val result = ArrayList&lt;ColorInfo&gt;(take.size)
+                take.forEach {
+                    result.add(ColorInfo(it.rgb, it.population.toFloat() / sum))
+                }
+                iColor?.result(result)
+            }
+
+        }
+    }
+}
+</code></pre>
+<h3 id="demo">Demo</h3>
+<p>由于代码不多,想实践的话可复用此<a href="https://github.com/mtdhllf/ImageColorSample">demo</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[几行代码完美实现VerticalSeekBar]]></title>
         <id>https://mtdhllf.github.io/vertical_seekbar/</id>
