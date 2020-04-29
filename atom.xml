@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-28T14:42:12.837Z</updated>
+    <updated>2020-04-29T02:37:23.730Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -439,7 +439,7 @@ private fun init() {
 <ul>
 <li>
 <p>使用 = 和 - 标记一级和二级标题</p>
-<pre><code>我展示的是一级标题(下面=要两个以上)
+<pre><code class="language-markdown">我展示的是一级标题(下面=要两个以上)
 =================
 
 我展示的是二级标题(下行-要两个以上)
@@ -453,7 +453,7 @@ private fun init() {
 <li>
 <p>使用 # 号标记</p>
 <p>使用 <strong>#</strong> 号可表示 1-6 级标题，一级标题对应一个 <strong>#</strong> 号，二级标题对应两个 <strong>#</strong> 号，以此类推。</p>
-<pre><code># 一级标题
+<pre><code class="language-markdown"># 一级标题
 ## 二级标题
 ### 三级标题
 #### 四级标题
@@ -478,13 +478,13 @@ private fun init() {
 <ol>
 <li>
 <p>Markdown 段落没有特殊的格式，直接编写文字就好，段落的换行是使用两个以上空格加上回车。</p>
-<pre><code>text1  (text1后面有两个空格)  
+<pre><code class="language-markdown">text1  (text1后面有两个空格)  
 text2
 </code></pre>
 </li>
 <li>
 <p>也可以在段落后面使用一个空行来表示重新开始一个段落。</p>
-<pre><code>text1
+<pre><code class="language-markdown">text1
 
 text2
 </code></pre>
@@ -494,7 +494,7 @@ text2
 <li>
 <h3 id="字体">字体</h3>
 <p>Markdown 可以使用以下几种字体：</p>
-<pre><code>*斜体文本*
+<pre><code class="language-markdown">*斜体文本*
 _斜体文本_
 **粗体文本**
 __粗体文本__
@@ -515,7 +515,7 @@ ___粗斜体文本___
 <h2 id="markdown-列表">Markdown 列表</h2>
 <p>Markdown 支持有序列表和无序列表。</p>
 <p>无序列表使用星号(<em><strong><strong>)、加号(</strong>+</strong>)或是减号(</em><em>-</em>*)作为列表标记：</p>
-<pre><code>* 第一项
+<pre><code class="language-markdown">* 第一项
 * 第二项
 * 第三项
 
@@ -550,7 +550,7 @@ ___粗斜体文本___
 <li>
 <p><strong>单层区块</strong></p>
 <p>Markdown 区块引用是在段落开头使用 <strong>&gt;</strong> 符号 ，然后后面紧跟一个<strong>空格</strong>符号：</p>
-<pre><code>&gt; 白日依山尽，
+<pre><code class="language-markdown">&gt; 白日依山尽，
 &gt; 黄河入海流。
 &gt; 欲穷千里目，
 &gt; 更上一层楼。
@@ -566,7 +566,7 @@ ___粗斜体文本___
 <li>
 <p><strong>嵌套区块</strong></p>
 <p>区块是可以嵌套的，一个 <strong>&gt;</strong> 符号是最外层，两个 <strong>&gt;</strong> 符号是第一层嵌套，以此类推：</p>
-<pre><code>&gt; 最外层
+<pre><code class="language-markdown">&gt; 最外层
 &gt; &gt; 第一层嵌套
 &gt; &gt; &gt; 第二层嵌套
 </code></pre>
@@ -587,7 +587,7 @@ ___粗斜体文本___
 </ul>
 <h2 id="markdown-代码">Markdown 代码</h2>
 <p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<strong>`</strong>），例如：</p>
-<pre><code>`printf()` 函数
+<pre><code class="language-markdown">`printf()` 函数
 </code></pre>
 <p>显示结果如下：</p>
 <p><code>printf()</code> 函数</p>
@@ -608,11 +608,8 @@ $(document).ready(function () {
     alert('javascript');
 });
 </code></pre>
-<pre><code>
-显示结果如下：
-
-```javascript
-$(document).ready(function () {
+<p>显示结果如下：</p>
+<pre><code class="language-javascript">$(document).ready(function () {
     alert('javascript');
 });
 </code></pre>
@@ -620,21 +617,21 @@ $(document).ready(function () {
 <ul>
 <li>
 <p>常用链接使用方法：</p>
-<pre><code>[链接名称](链接地址)
+<pre><code class="language-markdown">[链接名称](链接地址)
 
 或者
 
 &lt;链接地址&gt;
 </code></pre>
 <p>例如：</p>
-<pre><code>这是一个链接 [百度一下](https://www.baidu.com)
+<pre><code class="language-markdown">这是一个链接 [百度一下](https://www.baidu.com)
 </code></pre>
 <p>显示结果如下：</p>
 <p>这是一个链接 <a href="https://www.baidu.com">百度一下</a></p>
 </li>
 <li>
 <p>直接使用链接地址：</p>
-<pre><code>&lt;https://www.baidu.com&gt;
+<pre><code class="language-markdown">&lt;https://www.baidu.com&gt;
 </code></pre>
 <p>显示结果如下：</p>
 <p><a href="https://www.baidu.com">https://www.baidu.com</a></p>
@@ -642,7 +639,7 @@ $(document).ready(function () {
 </ul>
 <h2 id="markdown-图片">Markdown 图片</h2>
 <p>Markdown 图片语法格式如下：</p>
-<pre><code>![alt 属性文本](图片地址)
+<pre><code class="language-markdown">![alt 属性文本](图片地址)
 
 ![alt 属性文本](图片地址 &quot;可选标题&quot;)
 </code></pre>
@@ -652,7 +649,7 @@ $(document).ready(function () {
 <li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 'title' 属性的文字。</li>
 </ul>
 <p>使用实例：</p>
-<pre><code>![RUNOOB 图标](https://www.baidu.com/img/bd_logo1.png)
+<pre><code class="language-markdown">![RUNOOB 图标](https://www.baidu.com/img/bd_logo1.png)
 
 ![RUNOOB 图标](https://www.baidu.com/img/bd_logo1.png &quot;百度&quot;)
 </code></pre>
@@ -660,7 +657,7 @@ $(document).ready(function () {
 <figure data-type="image" tabindex="1"><img src="https://www.baidu.com/img/baidu_jgylogo3.gif" alt="RUNOOB 图标" loading="lazy"></figure>
 <figure data-type="image" tabindex="2"><img src="https://www.baidu.com/img/baidu_jgylogo3.gif" alt="RUNOOB 图标" title="百度" loading="lazy"></figure>
 <p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <img> 标签。</p>
-<pre><code>&lt;img src=&quot;https://www.baidu.com/img/baidu_jgylogo3.gif&quot; width=&quot;20%&quot;&gt;
+<pre><code class="language-html">&lt;img src=&quot;https://www.baidu.com/img/baidu_jgylogo3.gif&quot; width=&quot;20%&quot;&gt;
 </code></pre>
 <p>显示结果如下：</p>
 <img src="https://www.baidu.com/img/baidu_jgylogo3.gif" width="20%">
@@ -669,7 +666,7 @@ $(document).ready(function () {
 <h2 id="markdown-表格">Markdown 表格</h2>
 <p>Markdown 制作表格使用 <strong>|</strong> 来分隔不同的单元格，使用 <strong>-</strong> 来分隔表头和其他行。</p>
 <p>语法格式如下：</p>
-<pre><code>|  表头   | 表头  |
+<pre><code class="language-markdown">|  表头   | 表头  |
 |  ----  | ----  |
 | 单元格  | 单元格 |
 | 单元格  | 单元格 |
@@ -701,7 +698,7 @@ $(document).ready(function () {
 <li><strong>:-:</strong> 设置内容和标题栏居中对齐。</li>
 </ul>
 <p>实例如下：</p>
-<pre><code>| 左对齐 | 右对齐 | 居中对齐 |
+<pre><code class="language-markdown">| 左对齐 | 右对齐 | 居中对齐 |
 | :-----| ----: | :----: |
 | 单元格 | 单元格 | 单元格 |
 | 单元格 | 单元格 | 单元格 |
@@ -734,7 +731,7 @@ $(document).ready(function () {
 <h3 id="支持的-html-元素">支持的 HTML 元素</h3>
 <p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
 <p>目前支持的 HTML 元素有：等 ，如：</p>
-<pre><code>使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑
+<pre><code class="language-html">使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑
 </code></pre>
 <p>输出结果为：</p>
 <p>使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑</p>
@@ -742,14 +739,14 @@ $(document).ready(function () {
 <li>
 <h3 id="转义">转义</h3>
 <p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
-<pre><code>**文本加粗** 
+<pre><code class="language-markdown">**文本加粗** 
 \*\* 正常显示星号 \*\*
 </code></pre>
 <p>输出结果为：</p>
 <p><strong>文本加粗</strong><br>
 ** 正常显示星号 **</p>
 <p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
-<pre><code>\   反斜线
+<pre><code class="language-markdown">\   反斜线
 `   反引号
 *   星号
 _   下划线
@@ -766,7 +763,7 @@ _   下划线
 <li>
 <h3 id="公式">公式</h3>
 <p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如：</p>
-<pre><code>$$
+<pre><code class="language-markdown">$$
 \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
 \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
 \frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
