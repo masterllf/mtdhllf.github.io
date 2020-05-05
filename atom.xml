@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-05-05T06:12:19.103Z</updated>
+    <updated>2020-05-05T06:41:23.873Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -22,8 +22,8 @@
 <p>IOS的同学可参考<a href="https://www.jianshu.com/p/b7f79c55b066">Google Palette算法详解以及OC化</a></p>
 <p>本篇使用谷歌的Palette库来实现</p>
 <h3 id="效果图">效果图</h3>
-<p><img src="https://lowclouds-my.sharepoint.com/personal/tesla_lowclouds_onmicrosoft_com/_layouts/52/download.aspx?share=EZ1aciWjEIJJkAdv5U9mjK0BhvLZ3qjW6QiBUvmaIGc5rQ" alt="" loading="lazy"><br>
-<img src="https://lowclouds-my.sharepoint.com/personal/tesla_lowclouds_onmicrosoft_com/_layouts/52/download.aspx?share=ESEgVrCnrElMuaWKxesQQOUB-WG9fCMU1buaYDKPDm_8Pw" alt="" loading="lazy"></p>
+<p><img src="http://yanxuan.nosdn.127.net/4edfd99250d652e0a2bafc2ce76dfc1d.jpg" alt="" loading="lazy"><br>
+<img src="http://yanxuan.nosdn.127.net/227567e78c31690f5ed8a94df1fd849c.jpg" alt="" loading="lazy"></p>
 <p>添加依赖</p>
 <pre><code class="language-scss">//Android
 implementation 'com.android.support:palette-v7:29.0.0'
@@ -90,7 +90,7 @@ implementation 'androidx.palette:palette:1.0.0'
 </ul>
 <h3 id="上个效果图参考miui12配色">上个效果图(参考MIUI12配色)</h3>
 <h3 id=""><a href="https://github.com/mtdhllf/VerticalSeekBar"><strong>Demo点我</strong></a></h3>
-<figure data-type="image" tabindex="1"><img src="https://lowclouds-my.sharepoint.com/personal/tesla_lowclouds_onmicrosoft_com/_layouts/52/download.aspx?share=EaloKtyY4vZDvBc4te4DoKEBjVAgP-HZ-upcTCqs3S43TA" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="http://yanxuan.nosdn.127.net/04b4f0c033a7775420ee37f508bfd7d5.jpg" alt="" loading="lazy"></figure>
 <h3 id="代码">代码</h3>
 <pre><code class="language-kotlin">/**
  * author: mtdhllf
@@ -163,7 +163,7 @@ class VerticalSeekBar : AppCompatSeekBar {
 <p>支持纯色/渐变，可选线条样式，动画时长。</p>
 <p>可实现扇形进度条、多个进度叠加、最小/最大进度等。</p>
 <p>先上个效果图:	<a href="https://github.com/mtdhllf/RingProgressView">Demo点我</a></p>
-<figure data-type="image" tabindex="1"><a href="https://github.com/mtdhllf/RingProgressView"><img src="https://github.com/mtdhllf/RingProgressView/raw/master/shot/shot1.gif" alt="" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="1"><a href="https://github.com/mtdhllf/RingProgressView"><img src="http://yanxuan.nosdn.127.net/a25a8853b1da306c5fea02dfc83dca75.gif" alt="" loading="lazy"></a></figure>
 <h3 id="实现思路">实现思路</h3>
 <p>环形进度条,本质就是根据角度、半径等条件实现画圆的过程</p>
 <ol>
@@ -365,7 +365,7 @@ private fun init() {
 <p>有些项目可能会遇到这类需求，识别一套服装或者其他物体的颜色信息，以此来判定他的颜色风格。如果业务交由于后端的话压力可能会比较大，其实前端自行处理一下就好了，逻辑也不复杂。</p>
 <p>彩色图像的颜色模型有很多种形式，<a href="https://baike.baidu.com/item/RGB">RGB</a>、YUV、<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>、CMYK，其中在图像处理以<a href="https://baike.baidu.com/item/RGB">RGB</a>最为直观理解且显示器系统采用就是此类模型，而<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>更符合人眼的颜色分辨，通常在<a href="https://baike.baidu.com/item/HSV/547122">HSV</a>颜色空间下进行颜色识别。</p>
 <h2 id="先上个效果图demo点我">先上个效果图(<a href="https://github.com/mtdhllf/ImageColorSample">Demo点我</a>)</h2>
-<figure data-type="image" tabindex="1"><img src="http://i1.fuimg.com/717574/f3acdcb4b6f184cc.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="http://yanxuan.nosdn.127.net/d51c329b9f19efdd8bded91bb5f9a9de.jpg" alt="" loading="lazy"></figure>
 <h2 id="rgb的局限性">RGB的局限性</h2>
 <p><a href="https://baike.baidu.com/item/RGB">RGB</a> 是我们接触最多的颜色空间，由三个通道表示一幅图像，分别为红色(R)，绿色(G)和蓝色(B)。这三种颜色的不同组合可以形成几乎所有的其他颜色。</p>
 <p><a href="https://baike.baidu.com/item/RGB">RGB</a> 颜色空间是图像处理中最基本、最常用、面向硬件的颜色空间，比较容易理解。</p>
