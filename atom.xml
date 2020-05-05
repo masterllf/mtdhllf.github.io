@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-04-29T16:52:27.884Z</updated>
+    <updated>2020-05-05T06:09:46.499Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -16,13 +16,14 @@
         <link href="https://mtdhllf.github.io/palette/">
         </link>
         <updated>2020-04-29T14:32:15.000Z</updated>
-        <content type="html"><![CDATA[<p>Java的同学可参考<a href="https://mtdhllf.github.io/analyze_image_color/">JAVA 图像分析-主要颜色</a></p>
+        <content type="html"><![CDATA[<h1 id="android识别图片中的颜色">Android识别图片中的颜色</h1>
+<p>Java的同学可参考<a href="https://mtdhllf.github.io/analyze_image_color/">JAVA 图像分析-主要颜色</a></p>
 <p>前端的同学可参考<a href="https://github.com/google/palette.js">palette.js</a></p>
 <p>IOS的同学可参考<a href="https://www.jianshu.com/p/b7f79c55b066">Google Palette算法详解以及OC化</a></p>
 <p>本篇使用谷歌的Palette库来实现</p>
 <h3 id="效果图">效果图</h3>
-<p><img src="http://i2.tiimg.com/717574/32aa2a58c5af05ca.jpg" alt="" loading="lazy"><br>
-<img src="http://i2.tiimg.com/717574/83c0fb77a583d5a6.jpg" alt="" loading="lazy"></p>
+<p><img src="https://lowclouds-my.sharepoint.com/personal/tesla_lowclouds_onmicrosoft_com/_layouts/52/download.aspx?share=EZ1aciWjEIJJkAdv5U9mjK0BhvLZ3qjW6QiBUvmaIGc5rQ" alt="" loading="lazy"><br>
+<img src="https://lowclouds-my.sharepoint.com/personal/tesla_lowclouds_onmicrosoft_com/_layouts/52/download.aspx?share=ESEgVrCnrElMuaWKxesQQOUB-WG9fCMU1buaYDKPDm_8Pw" alt="" loading="lazy"></p>
 <p>添加依赖</p>
 <pre><code class="language-scss">//Android
 implementation 'com.android.support:palette-v7:29.0.0'
@@ -89,7 +90,7 @@ implementation 'androidx.palette:palette:1.0.0'
 </ul>
 <h3 id="上个效果图参考miui12配色">上个效果图(参考MIUI12配色)</h3>
 <h3 id=""><a href="https://github.com/mtdhllf/VerticalSeekBar"><strong>Demo点我</strong></a></h3>
-<figure data-type="image" tabindex="1"><img src="http://i1.fuimg.com/717574/8fe6365289fd9fd3.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://lowclouds-my.sharepoint.com/personal/tesla_lowclouds_onmicrosoft_com/_layouts/52/download.aspx?share=EaloKtyY4vZDvBc4te4DoKEBjVAgP-HZ-upcTCqs3S43TA" alt="" loading="lazy"></figure>
 <h3 id="代码">代码</h3>
 <pre><code class="language-kotlin">/**
  * author: mtdhllf
@@ -162,7 +163,7 @@ class VerticalSeekBar : AppCompatSeekBar {
 <p>支持纯色/渐变，可选线条样式，动画时长。</p>
 <p>可实现扇形进度条、多个进度叠加、最小/最大进度等。</p>
 <p>先上个效果图:	<a href="https://github.com/mtdhllf/RingProgressView">Demo点我</a></p>
-<figure data-type="image" tabindex="1"><a href="https://github.com/mtdhllf/RingProgressView"><img src="http://i1.fuimg.com/717574/709074b03314e88e.gif" alt="" loading="lazy"></a></figure>
+<figure data-type="image" tabindex="1"><a href="https://github.com/mtdhllf/RingProgressView"><img src="https://github.com/mtdhllf/RingProgressView/raw/master/shot/shot1.gif" alt="" loading="lazy"></a></figure>
 <h3 id="实现思路">实现思路</h3>
 <p>环形进度条,本质就是根据角度、半径等条件实现画圆的过程</p>
 <ol>
