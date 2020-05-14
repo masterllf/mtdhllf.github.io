@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://mtdhllf.github.io/</id>
     <title>Gopher&apos;s Blog</title>
-    <updated>2020-05-14T08:12:52.360Z</updated>
+    <updated>2020-05-14T08:13:35.822Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://mtdhllf.github.io/"/>
     <link rel="self" href="https://mtdhllf.github.io/atom.xml"/>
@@ -850,6 +850,21 @@ ${$tep1}{\style{visibility:hidden}{(x+1)(x+1)}}
 </p>
 </li>
 </ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[视觉传达设计—作业一]]></title>
+        <id>https://mtdhllf.github.io/sjcd_homework_01/</id>
+        <link href="https://mtdhllf.github.io/sjcd_homework_01/">
+        </link>
+        <updated>2020-01-01T08:10:18.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>**作品预览：**PS(只有第二张才是我画的)</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="http://yanxuan.nosdn.127.net/13fb30f801bdf0437e65fe17d4458274.jpg" alt="1.jpg" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="http://yanxuan.nosdn.127.net/f46da1b388be9900c8bb6eb858b7cd0b.jpg" alt="2.jpg" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="http://yanxuan.nosdn.127.net/b89ecae542b3ca90fa91edb50b098adf.jpg" alt="3.jpg" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="http://yanxuan.nosdn.127.net/c1d569ae04c444ba2d6087221cc35166.jpg" alt="4.jpg" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
